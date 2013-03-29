@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Universal List App</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+	
+		<style>
+	.ui-page { 
+background: #CCCCCC;
+}
+		</style>
+</head>
+<style>
+.prime{
+width:60%;
+margin:0 auto
+</style>
+<body>
+<!--
+<div id="error">
+		</div>
+		<div id="formList">
+		
+		</div>
+		-->
+		
+		
+		
+		
+		
+		
+<div data-role="page" id="home" >
+
+		<div data-role="header" data-theme="b">
+		<h1>Universal List App</h1>
+		<a href="#home" data-icon="home">Home</a>
+		</div>
+		<div data-role="content" data-theme="b">
+			<div class="prime">
+				<p><a href="#genrePage" data-role="button">add a genre</a></p>
+				<p><a href="#topAdd" data-role="button">add a top pick</a></p>
+				<p><a href="#selectionPage" data-role="button">make a selection</a></p>
+				<p><a href="#lister" data-role="button" >view the list</a></p>
+				<p><a href="#admin" data-role="button" >clear all data</a></p>
+			</div>
+		</div>
+		<div data-role="footer" data-theme="b" data-position="fixed">
+		<h3>LT & CN</h3>
+		</div>
+</div>
+	<div data-role="page" id="genrePage">
+
+		<div data-role="header" data-theme="b">
+		<h1>Universal List App</h1>
+		<a href="#home" data-icon="home">Home</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="b">
+		<div class="prime">
+
+		<form >
+
+			
+			<div data-role="fieldcontain">
+	         <label for="name">Genre:</label>
+	         <input type="text" id="genre" value="" onchange="findByName(true)"  />
+			 <ul class='options-list'></ul>
+			</div>
+				
+			
+
+			<div class="ui-body ui-body-b">
+			<fieldset class="ui-grid-a">
+					<div class="ui-block-a"><button type="submit" onclick="submitForm()" data-theme="a">Submit</button></div>
+					<div class="ui-block-b"><button onclick="window.location.reload()" data-theme="d">Cancel</button></div>
+			</fieldset>
+			</div>
+		</form>	
+		</div>
+		
+	
+
+</div><!-- /content -->
+
+<div data-role="footer" data-theme="b" data-position="fixed">
+		<h3>LT & CN</h3>
+</div>
+	
+</div><!-- /page -->
+<div data-role="page" id="topAdd">
+
+		<div data-role="header" data-theme="b">
+		<h1>Universal List App</h1>
+		<a href="#home" data-icon="home">Home</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="b">
+		<div class="prime">
+			<form >
+				<div data-role="fieldcontain">
+					<label for="select-choice-a" class="select">Choose genre:</label>
+					<select name="select-choice-a" id="select-choice-a" data-native-menu="false" class="required">
+						<option value="" data-placeholder="true">Please select a genre:</option>
+					</select>
+					<br/><br/>
+					<div data-role="fieldcontain">
+					<label for="top">Top 10:</label>
+					<input type="text" id="top" value="" onchange="findByName(false)" class="required" />
+					<ul class='options-list'></ul>
+					</div>
+				</div>
+				<div class="ui-body ui-body-b">
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-a"><button onclick="submitF()" data-theme="a">Submit</button></div>
+					<div class="ui-block-b"><button onclick="window.location.reload()" data-theme="d">Cancel</button></div>
+				</fieldset>
+				</div>
+			</form>
+			
+		</div>
+		
+	
+
+</div><!-- /content -->
+
+<div data-role="footer" data-theme="b" data-position="fixed">
+		<h3>LT & CN</h3>
+</div>
+	
+</div><!-- /page -->
+
+<div data-role="page" id="selectionPage">
+
+		<div data-role="header" data-theme="b">
+		<h1>Universal List App</h1>
+		<a href="#home" data-icon="home">Home</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="b">
+		<div class="prime">
+			<form >
+				<div data-role="fieldcontain">
+					<label for="select-choice-f" class="select">Choose genre:</label>
+					<select name="select-choice-f" id="select-choice-f" data-native-menu="false" class="required" onchange="pick()" >
+						<option value="" data-placeholder="true">Please select a genre:</option>
+					</select>
+					<br/><br/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="select-choice-e" class="select">Choose Top 10:</label>
+					<select name="select-choice-e" id="select-choice-e"  onclick="message()" >
+						<!--<option>Please select a Top 10:</option>-->
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="note">Note:</label>
+					<textarea name="note" id="note"></textarea>
+				</div>
+				<div class="ui-body ui-body-b">
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-a"><button onclick="submitSelect()" data-theme="a">Submit</button></div>
+					<div class="ui-block-b"><button onclick="window.location.reload()" data-theme="d">Cancel</button></div>
+				</fieldset>
+				</div>
+			</form>
+			<br/><br/><br/><hr/><br/>
+			<p>Or use the more complicated global picker</p>
+			<form >
+				<div data-role="fieldcontain">
+					<label for="select-choice-b" class="select">Choose Top 10:</label>
+					<select name="select-choice-b" id="select-choice-b" data-native-menu="false">
+						<option>Please select a Top 10:</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="note2">Note:</label>
+					<textarea name="note2" id="note2"></textarea>
+				</div>
+				<div class="ui-body ui-body-b">
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-a"><button onclick="submitSelect2()" data-theme="a">Submit</button></div>
+					<div class="ui-block-b"><button onclick="window.location.reload()" data-theme="d">Cancel</button></div>
+				</fieldset>
+				</div>
+			</form>
+		</div>
+		
+	
+
+</div><!-- /content -->
+
+<div data-role="footer" data-theme="b" data-position="fixed">
+		<h3>LT & CN</h3>
+</div>
+	
+</div><!-- /page -->
+<div data-role="page" id="lister" >
+
+
+		<div data-role="header" data-theme="b">
+		<h1>Universal List App</h1>
+		<a href="#home" data-icon="home">Home</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="b">
+		<div class="prime">
+			<div id="list">
+			</div>
+			<button onclick="clearList()" data-theme="d">clear list</button>
+		</div>
+		
+	
+
+</div><!-- /content -->
+
+<div data-role="footer" data-theme="b" data-position="fixed">
+		<h3>LT & CN</h3>
+</div>
+	
+</div><!-- /page -->
+<div data-role="page" id="admin" >
+
+
+		<div data-role="header" data-theme="b">
+		<h1>Universal List App</h1>
+		<a href="#home" data-icon="home">Home</a>
+	</div><!-- /header -->
+
+	<div data-role="content" data-theme="b">
+		<div class="prime">
+			
+			<a href='#confirmation2'  data-role='button'  data-icon='delete' >clear all data</a>
+		</div>
+		
+	
+
+</div><!-- /content -->
+
+<div data-role="footer" data-theme="b" data-position="fixed">
+		<h3>LT & CN</h3>
+</div>
+	
+</div><!-- /page -->
+
+<div data-role="dialog" id="confirmation">
+	
+		<div data-role="header" data-theme="d">
+			<h1>Confirmation Page</h1>
+
+		</div>
+
+		<div data-role="content" data-theme="c">
+			<h1>Are you sure?</h1>
+			<p>Do you really want to delete this item?</p>
+			<a href="#" onclick="clearSelection()" data-role="button" data-rel="back" data-theme="b">Yes</a>       
+			<a href="#"  data-role="button" data-rel="back" data-theme="c">No</a>    
+		</div>
+	</div>
+	<div data-role="dialog" id="confirmation2">
+	
+		<div data-role="header" data-theme="d">
+			<h1>Confirmation Page</h1>
+
+		</div>
+
+		<div data-role="content" data-theme="c">
+			<h1>Are you sure?</h1>
+			<p>Do you really want to delete all data?</p>
+			<a href="#" onclick="blank()" data-role="button" data-rel="back" data-theme="b">Yes</a>       
+			<a href="#"  data-role="button" data-rel="back" data-theme="c">No</a>    
+		</div>
+	</div>
+	<script src="cat.js"></script>
+</body>
+</html>
