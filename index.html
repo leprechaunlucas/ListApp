@@ -42,8 +42,8 @@ margin:0 auto
 		</div>
 		<div data-role="content" data-theme="b">
 			<div class="prime">
-				<p><a href="#genrePage" data-role="button">add a genre</a></p>
-				<p><a href="#topAdd" data-role="button">add a top pick</a></p>
+				<p><a href="#genrePage" data-role="button">add a type</a></p>
+				<p><a href="#topAdd" data-role="button">add an item</a></p>
 				<p><a href="#selectionPage" data-role="button">make a selection</a></p>
 				<p><a href="#lister" data-role="button" >view the list</a></p>
 				<p><a href="#admin" data-role="button" >clear all data</a></p>
@@ -67,7 +67,7 @@ margin:0 auto
 
 			
 			<div data-role="fieldcontain">
-	         <label for="name">Genre:</label>
+	         <label for="name">Type:</label>
 	         <input type="text" id="genre" value="" onchange="findByName(true)"  />
 			 <ul class='options-list'></ul>
 			</div>
@@ -103,13 +103,13 @@ margin:0 auto
 		<div class="prime">
 			<form >
 				<div data-role="fieldcontain">
-					<label for="select-choice-a" class="select">Choose genre:</label>
+					<label for="select-choice-a" class="select">Choose type:</label>
 					<select name="select-choice-a" id="select-choice-a" data-native-menu="false" class="required">
-						<option value="" data-placeholder="true">Please select a genre:</option>
+						<option value="" data-placeholder="true">Please select a type:</option>
 					</select>
 					<br/><br/>
 					<div data-role="fieldcontain">
-					<label for="top">Top 10:</label>
+					<label for="top">Item:</label>
 					<input type="text" id="top" value="" onchange="findByName(false)" class="required" />
 					<ul class='options-list'></ul>
 					</div>
@@ -145,14 +145,14 @@ margin:0 auto
 		<div class="prime">
 			<form >
 				<div data-role="fieldcontain">
-					<label for="select-choice-f" class="select">Choose genre:</label>
+					<label for="select-choice-f" class="select">Choose type:</label>
 					<select name="select-choice-f" id="select-choice-f" data-native-menu="false" class="required" onchange="pick()" >
-						<option value="" data-placeholder="true">Please select a genre:</option>
+						<option value="" data-placeholder="true">Please select a type:</option>
 					</select>
 					<br/><br/>
 				</div>
 				<div data-role="fieldcontain">
-					<label for="select-choice-e" class="select">Choose Top 10:</label>
+					<label for="select-choice-e" class="select">Choose Item:</label>
 					<select name="select-choice-e" id="select-choice-e"  onclick="message()" >
 						<!--<option>Please select a Top 10:</option>-->
 					</select>
@@ -172,9 +172,9 @@ margin:0 auto
 			<p>Or use the more complicated global picker</p>
 			<form >
 				<div data-role="fieldcontain">
-					<label for="select-choice-b" class="select">Choose Top 10:</label>
+					<label for="select-choice-b" class="select">Choose Item:</label>
 					<select name="select-choice-b" id="select-choice-b" data-native-menu="false">
-						<option>Please select a Top 10:</option>
+						<option>Please select an Item:</option>
 					</select>
 				</div>
 				<div data-role="fieldcontain">

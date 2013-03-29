@@ -462,6 +462,7 @@ opt.text = localStorage["topPickName"+i];;
 					localStorage["genreCount"]=Number(localStorage["genreCount"])+1;
 					//alert(localStorage["genre"+Number(localStorage["genreCount"])]+localStorage["genreCount"]);
 					alert("Success!!! The genre has been generated.");
+					location.reload();
 				}
 				else
 				{
